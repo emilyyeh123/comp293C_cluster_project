@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.cluster.hierarchy as shc
+#from sklearn.cluster import AgglomerativeClustering
+from sklearn.decomposition import PCA
 
 def main():
     matrixBegin = 0
@@ -37,10 +39,28 @@ def main():
     df = pd.DataFrame(geneExpArr, columns = colHeaders, index = rowHeaders) # FINAL DATAFRAME
     print(df.head())
 
+    print("Creating Dendrogram")
+    figDendrogram = plt.figure()
     plt.title("Gene Expression Dendrogram")
     dend = shc.dendrogram(shc.linkage(df, method='ward'))
-    #plt.show()
+    #plt.axhline(y=6, color='r', linestyle='--') # red dotted line
     plt.savefig("dendrogram.png")
+    #plt.show()
+
+    print("Plotting Cluster")
+    # Use PCA to reduce to 2 dimensions
+    pca = PCA(n_components=2)
+    pca_features = pca.fit_transform(df.values)
+    pca_df = pd.DataFrame(data=pca_features, columns=['PC1', 'PC2'])
+    print(pca_df)
+
+    # plot data
+    figPlot = plt.figure()
+    plt.plot(pca_df["PC1"], pca_df["PC2"], marker="o", linestyle="", alpha = 0.05)
+    plt.xlabel("PC1")
+    plt.ylabel("PC2")
+    plt.savefig("clustering.png")
+    #plt.show()
 
 if __name__ == "__main__":
 	main()
