@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.cluster.hierarchy as shc
-#from sklearn.cluster import AgglomerativeClustering
+from sklearn.cluster import AgglomerativeClustering
 from sklearn.decomposition import PCA
 
 def main():
@@ -10,7 +10,7 @@ def main():
     geneExpArr = []
 
     print("Opening File")
-    txtFile = open("dupe_fibroblast_data/GSE202991_series_matrix.txt", "r")
+    txtFile = open("test_shrunken_dataset/test_set.txt", "r")
 
     for line in txtFile:
         if matrixBegin == 0 and line == "!series_matrix_table_begin\n":
@@ -47,6 +47,14 @@ def main():
     plt.savefig("dendrogram.png")
     #plt.show()
 
+    clusterPlot = plt.figure()
+    cluster = AgglomerativeClustering(n_clusters=3, metric='euclidean', linkage='ward')  
+    cluster.fit_predict(df)
+    plt.scatter(df[df.columns[5]], df[df.columns[2]], c=cluster.labels_)
+    plt.savefig("hierCluster.png")
+    plt.show()
+
+'''
     print("Plotting Cluster")
     # Use PCA to reduce to 2 dimensions
     pca = PCA(n_components=2)
@@ -61,6 +69,7 @@ def main():
     plt.ylabel("PC2")
     plt.savefig("clustering.png")
     #plt.show()
+'''
 
 if __name__ == "__main__":
 	main()
