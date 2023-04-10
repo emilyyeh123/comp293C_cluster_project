@@ -1,0 +1,18 @@
+
+BEGIN SCRIPT
+Mon Apr 10 14:44:15 PDT 2023
+python3 hierarchical_cluster_algorithm.py human_lens_cataract_data/GSE213546_series_matrix.txt dendrograms/LensDendrogram.png
+Opening File
+Creating Dataframe
+               "GSM6588927" "GSM6588928"  ... "GSM6588931" "GSM6588932"
+"ILMN_1343291"    13.119141    13.466384  ...    13.466384    13.466384
+"ILMN_1343295"    11.361527    11.361527  ...    11.138766    11.511783
+"ILMN_1651199"   0.11953675            0  ...  0.012076396     2.544758
+"ILMN_1651209"    2.6989806    2.2281914  ...    0.8795177  0.021410521
+"ILMN_1651210"   0.11953675            0  ...    2.8926601    2.4819245
+
+[5 rows x 6 columns]
+Creating Dendrogram
+Mon Apr 10 14:46:04 PDT 2023
+SCRIPT COMPLETE
+

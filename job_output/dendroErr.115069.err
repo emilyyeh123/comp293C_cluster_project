@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/exports/home/eyeh/comp293C_cluster_project/hierarchical_cluster_algorithm.py", line 92, in <module>
+    main()
+  File "/exports/home/eyeh/comp293C_cluster_project/hierarchical_cluster_algorithm.py", line 62, in main
+    dend = shc.dendrogram(shc.linkage(df, method='ward'))
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 1065, in linkage
+    raise ValueError("The condensed distance matrix must contain only "
+ValueError: The condensed distance matrix must contain only finite values.

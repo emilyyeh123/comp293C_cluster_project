@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "/exports/home/eyeh/comp293C_cluster_project/hierarchical_cluster_algorithm.py", line 92, in <module>
+    main()
+  File "/exports/home/eyeh/comp293C_cluster_project/hierarchical_cluster_algorithm.py", line 62, in main
+    dend = shc.dendrogram(shc.linkage(df, method='ward'))
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3349, in dendrogram
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3619, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3652, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3619, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3619, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3619, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3652, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3652, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3619, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3619, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3619, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  [Previous line repeated 1 more time]
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3652, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3652, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3652, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  [Previous line repeated 979 more times]
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3619, in _dendrogram_calculate_info
+    _dendrogram_calculate_info(
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3549, in _dendrogram_calculate_info
+    _append_singleton_leaf_node(Z, p, n, level, lvs, ivl,
+  File "/exports/home/eyeh/anaconda3/lib/python3.9/site-packages/scipy/cluster/hierarchy.py", line 3427, in _append_singleton_leaf_node
+    ivl.append(str(int(i)))
+RecursionError: maximum recursion depth exceeded while getting the str of an object

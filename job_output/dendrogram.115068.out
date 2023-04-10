@@ -1,0 +1,18 @@
+
+BEGIN SCRIPT
+Mon Apr 10 14:44:52 PDT 2023
+python3 hierarchical_cluster_algorithm.py human_breast_cancer_data/GSE224883_series_matrix.txt dendrograms/breastCancerDendrogram.png
+Opening File
+Creating Dataframe
+   "GSM7034918"  "GSM7034919"  ...  "GSM7035010"  "GSM7035011"
+1  -0.466744529     0.1345209  ...   0.550605038  -0.030803024
+2  -1.249980677  -1.592332941  ...   0.557684923   0.262497379
+3  -0.754946169  -1.122156884  ...   1.456731043  -0.597799971
+4   0.770677515   0.037833137  ...  -2.479706118  -0.805282754
+5  -0.521848151  -1.034650184  ...   0.243986361   0.097516344
+
+[5 rows x 94 columns]
+Creating Dendrogram
+Mon Apr 10 14:45:01 PDT 2023
+SCRIPT COMPLETE
+
