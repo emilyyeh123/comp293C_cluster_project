@@ -1,0 +1,18 @@
+
+BEGIN SCRIPT
+Mon Apr 10 14:58:30 PDT 2023
+python3 hierarchical_cluster_algorithm.py zebrafish_data/GSE152814_series_matrix.txt dendrograms/zebrafishDendrogram.png
+Opening File
+Creating Dataframe
+                 "GSM4626811" "GSM4626812"  ... "GSM4626826" "GSM4626827"
+"AFFX-BioB-3_at"  8.427689459  8.385309116  ...  6.973901979  6.874586369
+"AFFX-BioB-5_at"   8.75327423   9.02977809  ...  7.573683941  7.558326432
+"AFFX-BioB-M_at"  9.075430804  9.121767474  ...   7.68557069  7.485100394
+"AFFX-BioC-3_at"   9.71213803  9.780114169  ...  8.364798571  8.207966343
+"AFFX-BioC-5_at"  9.796139812  9.896723719  ...  8.548812881   8.33062409
+
+[5 rows x 17 columns]
+Creating Dendrogram
+Mon Apr 10 15:02:40 PDT 2023
+SCRIPT COMPLETE
+

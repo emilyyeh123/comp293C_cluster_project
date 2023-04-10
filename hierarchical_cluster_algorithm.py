@@ -2,7 +2,7 @@
 Python program to run hierarchical clustering on dataset
 
 To run program:
-python3 hierarchichal_cluster_algorithm.py dataFile.txt dendrogramImageName.png
+python3 hierarchichal_cluster_algorithm.py dataFile.txt dendrograms/dendrogramImageName.png
 
 datasets found on: https://www.ncbi.nlm.nih.gov/ 
 --> using Series Matrix txt File(s)
