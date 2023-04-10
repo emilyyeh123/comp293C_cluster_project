@@ -1,3 +1,15 @@
+'''
+Python program to run hierarchical clustering on dataset
+
+To run program:
+python3 hierarchichal_cluster_algorithm.py dataFile.txt dendrogramImageName.png
+
+datasets found on: https://www.ncbi.nlm.nih.gov/ 
+--> using Series Matrix txt File(s)
+
+'''
+
+import sys
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,8 +21,12 @@ def main():
     matrixBegin = 0
     geneExpArr = []
 
+    dataTxtFile = sys.argv[1]
+    imageFileName = sys.argv[2]
+
     print("Opening File")
-    txtFile = open("test_shrunken_dataset/test_set.txt", "r")
+    #txtFile = open("test_shrunken_dataset/test_set.txt", "r")
+    txtFile = open(dataTxtFile, "r")
 
     for line in txtFile:
         if matrixBegin == 0 and line == "!series_matrix_table_begin\n":
@@ -26,6 +42,7 @@ def main():
 
     txtFile.close()
 
+    # create dataframe from input file, store in df
     print("Creating Dataframe")
     df = pd.DataFrame(geneExpArr)
     colHeaders = df.iloc[0].tolist()[1:]
@@ -44,9 +61,10 @@ def main():
     plt.title("Gene Expression Dendrogram")
     dend = shc.dendrogram(shc.linkage(df, method='ward'))
     #plt.axhline(y=6, color='r', linestyle='--') # red dotted line
-    plt.savefig("dendrogram.png")
+    plt.savefig(imageFileName)
     #plt.show()
 
+'''
     clusterPlot = plt.figure()
     cluster = AgglomerativeClustering(n_clusters=3, metric='euclidean', linkage='ward')  
     cluster.fit_predict(df)
@@ -54,7 +72,6 @@ def main():
     plt.savefig("hierCluster.png")
     plt.show()
 
-'''
     print("Plotting Cluster")
     # Use PCA to reduce to 2 dimensions
     pca = PCA(n_components=2)
