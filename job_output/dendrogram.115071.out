@@ -1,0 +1,4 @@
+
+BEGIN SCRIPT
+Mon Apr 10 15:11:27 PDT 2023
+python3 hierarchical_cluster_algorithm.py mouse_data/GSE222392_series_matrix.txt dendrograms/mouseDendrogram.png

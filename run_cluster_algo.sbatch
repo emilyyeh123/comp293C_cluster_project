@@ -13,7 +13,8 @@
 #TO_RUN="python3 hierarchical_cluster_algorithm.py human_lens_cataract_data/*.txt dendrograms/lensCataractDendrogram.png"
 #TO_RUN="python3 hierarchical_cluster_algorithm.py human_breast_cancer_data/*.txt dendrograms/breastCancerDendrogram.png"
 #TO_RUN="python3 hierarchical_cluster_algorithm.py human_blood_covid_data/*.txt dendrograms/bloodCovidDendrogram.png"
-TO_RUN="python3 hierarchical_cluster_algorithm.py zebrafish_data/*.txt dendrograms/zebrafishDendrogram.png"
+#TO_RUN="python3 hierarchical_cluster_algorithm.py zebrafish_data/*.txt dendrograms/zebrafishDendrogram.png"
+TO_RUN="python3 hierarchical_cluster_algorithm.py mouse_data/*.txt dendrograms/mouseDendrogram.png"
 
 echo
 echo "BEGIN SCRIPT"
