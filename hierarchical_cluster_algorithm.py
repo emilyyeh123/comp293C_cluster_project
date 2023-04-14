@@ -1,5 +1,5 @@
 '''
-Python program to run hierarchical clustering on dataset
+Python program to run hiierarchical clustering on dataset
 
 To run program:
 python3 hierarchichal_cluster_algorithm.py dataFile.txt dendrograms/dendrogramImageName.png
@@ -16,6 +16,9 @@ import matplotlib.pyplot as plt
 import scipy.cluster.hierarchy as shc
 from sklearn.cluster import AgglomerativeClustering
 from sklearn.decomposition import PCA
+
+import mpl_toolkits.mplot3d
+from sklearn.cluster import KMeans
 
 def main():
     matrixBegin = 0
@@ -56,37 +59,34 @@ def main():
     df = pd.DataFrame(geneExpArr, columns = colHeaders, index = rowHeaders) # FINAL DATAFRAME
     print(df.head())
 
+    fig, (ax1, ax2) = plt.subplots(1,2)
+    fig.suptitle("Clustering Algorithms on data")#, dataset, "data")
+
     print("Creating Dendrogram")
-    figDendrogram = plt.figure()
-    plt.title("Gene Expression Dendrogram")
-    dend = shc.dendrogram(shc.linkage(df, method='ward'))
-    #plt.axhline(y=6, color='r', linestyle='--') # red dotted line
-    plt.savefig(imageFileName)
+    ax1.set_title("Gene Expression Dendrogram")
+    dend = shc.dendrogram(shc.linkage(df, method='ward'), ax = ax1)
+    #plt.savefig(imageFileName)
+    #print("Dendrogram saved to ", imageFileName, "\n")
     #plt.show()
 
-'''
-    clusterPlot = plt.figure()
-    cluster = AgglomerativeClustering(n_clusters=3, metric='euclidean', linkage='ward')  
-    cluster.fit_predict(df)
-    plt.scatter(df[df.columns[5]], df[df.columns[2]], c=cluster.labels_)
-    plt.savefig("hierCluster.png")
-    plt.show()
-
-    print("Plotting Cluster")
     # Use PCA to reduce to 2 dimensions
     pca = PCA(n_components=2)
     pca_features = pca.fit_transform(df.values)
     pca_df = pd.DataFrame(data=pca_features, columns=['PC1', 'PC2'])
-    print(pca_df)
+    print("\n", pca_df)
 
     # plot data
-    figPlot = plt.figure()
-    plt.plot(pca_df["PC1"], pca_df["PC2"], marker="o", linestyle="", alpha = 0.05)
-    plt.xlabel("PC1")
-    plt.ylabel("PC2")
+    print("Performing k-means clustering")
+    x = pca_df["PC1"]
+    y = pca_df["PC2"]
+    kmeans = KMeans(n_clusters=3, n_init=10)
+    kmeans.fit(pca_df)
+    ax2.scatter(x, y, c=kmeans.labels_)
+    #ax2.xlabel("PC1")
+    #ax2.ylabel("PC2")
     plt.savefig("clustering.png")
-    #plt.show()
-'''
+    plt.show()
+    #print("K-means cluster saved to ", )
 
 if __name__ == "__main__":
 	main()
