@@ -25,9 +25,9 @@ def main():
     geneExpArr = []
 
     dataTxtFile = sys.argv[1]
-    imageFileName = sys.argv[2]
+    datasetName = sys.argv[2]
 
-    print("Opening File")
+    print("Opening .txt File")
     #txtFile = open("test_shrunken_dataset/test_set.txt", "r")
     txtFile = open(dataTxtFile, "r")
 
@@ -46,7 +46,7 @@ def main():
     txtFile.close()
 
     # create dataframe from input file, store in df
-    print("Creating Dataframe")
+    print("\nCreating Dataframe")
     df = pd.DataFrame(geneExpArr)
     colHeaders = df.iloc[0].tolist()[1:]
     rowHeaders = df.iloc[:,0].tolist()[1:]
@@ -59,34 +59,31 @@ def main():
     df = pd.DataFrame(geneExpArr, columns = colHeaders, index = rowHeaders) # FINAL DATAFRAME
     print(df.head())
 
-    fig, (ax1, ax2) = plt.subplots(1,2)
-    fig.suptitle("Clustering Algorithms on data")#, dataset, "data")
-
-    print("Creating Dendrogram")
-    ax1.set_title("Gene Expression Dendrogram")
-    dend = shc.dendrogram(shc.linkage(df, method='ward'), ax = ax1)
-    #plt.savefig(imageFileName)
-    #print("Dendrogram saved to ", imageFileName, "\n")
-    #plt.show()
+    print("\nPerforming Hierarchical Clustering")
+    figDendrogram = plt.figure()
+    plt.title("Hierarchical Clustering On " + datasetName.replace("_", " ") + " Data")
+    dend = shc.dendrogram(shc.linkage(df, method='ward'))
+    #plt.savefig("/figures/"+ datasetName +"_dendrogram.png")
+    #print("Dendrogram saved to /figures/"+ datasetName +"_dendrogram.png\n")
+    plt.show()
 
     # Use PCA to reduce to 2 dimensions
     pca = PCA(n_components=2)
     pca_features = pca.fit_transform(df.values)
     pca_df = pd.DataFrame(data=pca_features, columns=['PC1', 'PC2'])
-    print("\n", pca_df)
 
     # plot data
-    print("Performing k-means clustering")
-    x = pca_df["PC1"]
-    y = pca_df["PC2"]
+    print("\nPerforming k-means clustering")
+    figKMeans = plt.figure()
     kmeans = KMeans(n_clusters=3, n_init=10)
     kmeans.fit(pca_df)
-    ax2.scatter(x, y, c=kmeans.labels_)
-    #ax2.xlabel("PC1")
-    #ax2.ylabel("PC2")
-    plt.savefig("clustering.png")
+    plt.scatter(pca_df["PC1"], pca_df["PC2"], c=kmeans.labels_)
+    plt.title("K-Means Clustering On " + datasetName.replace("_", " ") + " Data")
+    plt.xlabel("PC1")
+    plt.ylabel("PC2")
+    #plt.savefig("/figures/"+ datasetName +"_KMeans.png")
+    #print("K-means plot saved to /figures/"+ datasetName +"_KMeans.png")
     plt.show()
-    #print("K-means cluster saved to ", )
 
 if __name__ == "__main__":
 	main()
