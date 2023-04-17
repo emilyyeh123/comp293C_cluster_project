@@ -1,0 +1,7 @@
+
+BEGIN SCRIPT
+Mon Apr 17 14:58:55 PDT 2023
+python3 hierarchical_cluster_algorithm.py mouse_data/GSE222392_series_matrix.txt mouse_Data
+Mon Apr 17 14:58:55 PDT 2023
+SCRIPT COMPLETE
+

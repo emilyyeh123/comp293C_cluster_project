@@ -25,7 +25,7 @@ def main():
     geneExpArr = []
 
     dataTxtFile = sys.argv[1]
-    datasetName = sys.argv[2]
+    datasetName = sys.argv[2] # only use "_" as spaces
 
     print("Opening .txt File")
     #txtFile = open("test_shrunken_dataset/test_set.txt", "r")
@@ -63,9 +63,9 @@ def main():
     figDendrogram = plt.figure()
     plt.title("Hierarchical Clustering On " + datasetName.replace("_", " ") + " Data")
     dend = shc.dendrogram(shc.linkage(df, method='ward'))
-    #plt.savefig("/figures/"+ datasetName +"_dendrogram.png")
-    #print("Dendrogram saved to /figures/"+ datasetName +"_dendrogram.png\n")
-    plt.show()
+    plt.savefig("figures/"+ datasetName +"_dendrogram.png")
+    print("Dendrogram saved to figures/"+ datasetName +"_dendrogram.png\n")
+    #plt.show()
 
     # Use PCA to reduce to 2 dimensions
     pca = PCA(n_components=2)
@@ -81,9 +81,9 @@ def main():
     plt.title("K-Means Clustering On " + datasetName.replace("_", " ") + " Data")
     plt.xlabel("PC1")
     plt.ylabel("PC2")
-    #plt.savefig("/figures/"+ datasetName +"_KMeans.png")
-    #print("K-means plot saved to /figures/"+ datasetName +"_KMeans.png")
-    plt.show()
+    plt.savefig("figures/"+ datasetName +"_KMeans.png")
+    print("K-means plot saved to figures/"+ datasetName +"_KMeans.png")
+    #plt.show()
 
 if __name__ == "__main__":
 	main()

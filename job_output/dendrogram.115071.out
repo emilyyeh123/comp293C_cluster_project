@@ -2,3 +2,17 @@
 BEGIN SCRIPT
 Mon Apr 10 15:11:27 PDT 2023
 python3 hierarchical_cluster_algorithm.py mouse_data/GSE222392_series_matrix.txt dendrograms/mouseDendrogram.png
+Opening File
+Creating Dataframe
+                    "GSM6922516" "GSM6922517"  ... "GSM6922540" "GSM6922541"
+"TC0100000014.mm.2"         11.8        11.95  ...         11.6        11.38
+"TC0100000018.mm.2"         4.41         4.77  ...         4.35         4.97
+"TC0100000021.mm.2"        10.23         10.2  ...        10.15          9.9
+"TC0100000022.mm.2"         4.43         4.62  ...         4.74         4.53
+"TC0100000023.mm.2"         5.56         5.27  ...         3.84         3.72
+
+[5 rows x 26 columns]
+Creating Dendrogram
+Mon Apr 10 15:17:31 PDT 2023
+SCRIPT COMPLETE
+
