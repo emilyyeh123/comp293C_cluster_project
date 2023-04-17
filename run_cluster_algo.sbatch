@@ -7,8 +7,8 @@
 #SBATCH --nodes=1
 ##SBATCH --mem=50M
 
-#TO_RUN="python3 geneExpressionClustering.py human_breast_cancer_data/*.txt Breast_Cancer_Data 3"
-TO_RUN="python3 geneExpressionClustering.py mouse_data/*.txt Mouse_Data 2"
+TO_RUN="python3 geneExpressionClustering.py human_breast_cancer_data/*.txt Breast_Cancer_Data 3"
+#TO_RUN="python3 geneExpressionClustering.py mouse_data/*.txt Mouse_Data 2"
 #TO_RUN="python3 geneExpressionClustering.py zebrafish_data/*.txt Zebrafish_Data 2"
 
 echo
