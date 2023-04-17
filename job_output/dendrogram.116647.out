@@ -1,0 +1,4 @@
+
+BEGIN SCRIPT
+Mon Apr 17 15:24:07 PDT 2023
+python3 geneExpressionClustering.py mouse_data/GSE222392_series_matrix.txt mouse_Data 2

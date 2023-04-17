@@ -1,0 +1,4 @@
+
+BEGIN SCRIPT
+Mon Apr 17 15:23:56 PDT 2023
+python3 geneExpressionClustering.py zebrafish_data/GSE152814_series_matrix.txt zebrafish_Data 2

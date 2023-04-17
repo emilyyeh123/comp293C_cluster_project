@@ -26,6 +26,7 @@ def main():
 
     dataTxtFile = sys.argv[1]
     datasetName = sys.argv[2] # only use "_" as spaces
+    numClusters = int(sys.argv[3]) 
 
     print("Opening .txt File")
     #txtFile = open("test_shrunken_dataset/test_set.txt", "r")
@@ -61,7 +62,7 @@ def main():
 
     print("\nPerforming Hierarchical Clustering")
     figDendrogram = plt.figure()
-    plt.title("Hierarchical Clustering On " + datasetName.replace("_", " ") + " Data")
+    plt.title("Hierarchical Clustering On " + datasetName.replace("_", ""))
     dend = shc.dendrogram(shc.linkage(df, method='ward'))
     plt.savefig("figures/"+ datasetName +"_dendrogram.png")
     print("Dendrogram saved to figures/"+ datasetName +"_dendrogram.png\n")
@@ -75,10 +76,10 @@ def main():
     # plot data
     print("\nPerforming k-means clustering")
     figKMeans = plt.figure()
-    kmeans = KMeans(n_clusters=3, n_init=10)
+    kmeans = KMeans(n_clusters=numClusters, n_init=10)
     kmeans.fit(pca_df)
     plt.scatter(pca_df["PC1"], pca_df["PC2"], c=kmeans.labels_)
-    plt.title("K-Means Clustering On " + datasetName.replace("_", " ") + " Data")
+    plt.title("K-Means Clustering On " + datasetName.replace("_", ""))
     plt.xlabel("PC1")
     plt.ylabel("PC2")
     plt.savefig("figures/"+ datasetName +"_KMeans.png")
